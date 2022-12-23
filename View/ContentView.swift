@@ -23,6 +23,7 @@ struct ContentView: View {
                                         
                                 } label: {
                                     singleListView(num: i)
+                                    
                                 }
                             }
                             
