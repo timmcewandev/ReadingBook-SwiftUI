@@ -17,4 +17,15 @@ class Book : Identifiable, Decodable{
     var rating: Int
     var id: Int
     var content: [String]
+    
+    init(ids: UUID?, title: String, author: String, isfav: Bool, currentPage: Int, rating: Int, id: Int, content: [String]) {
+        self.ids = ids
+        self.title = title
+        self.author = author
+        self.isFavourite = isfav
+        self.currentPage = currentPage
+        self.rating = rating
+        self.id = id
+        self.content = content
+    }
 }

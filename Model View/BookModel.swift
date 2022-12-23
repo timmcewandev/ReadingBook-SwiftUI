@@ -13,8 +13,16 @@ class BookModel: ObservableObject {
     @Published var bookStore: [Book] = []
     
     init() {
-        bookStore = ServiceLayer.getBooks()
-        print("\(bookStore.count)")
+        self.bookStore = ServiceLayer.getBooks()
+    }
+    
+    func switchFavorited(id: UUID, isFav: Bool) {
+        for i in 0..<self.bookStore.count {
+            if self.bookStore[i].ids == id {
+                self.bookStore[i].isFavourite.toggle()
+            }
+        }
+        objectWillChange.send()
     }
     
 }

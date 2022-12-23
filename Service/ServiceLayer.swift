@@ -29,7 +29,6 @@ struct ServiceLayer {
                let dataArray = try decoder.decode([Book].self, from: data)
                 for index in 0..<dataArray.count {
                     dataArray[index].ids = UUID()
-                    print("\(dataArray[index].author)")
                 }
                 
                 return dataArray

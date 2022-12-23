@@ -10,19 +10,28 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var book: BookModel
     var body: some View {
-        GeometryReader { geo in
-            TabView {
-                ScrollView {
-                    VStack {
-                        ForEach(0..<book.bookStore.count) {i in
-                            ZStack {
-                                Rectangle()
-                            }.frame(width: geo.size.width-20, height: geo.size.height-200)
+        NavigationView {
+            GeometryReader { geo in
+                TabView {
+                    ScrollView {
+                        LazyVStack {
+                            
+                            ForEach(0..<book.bookStore.count) {i in
+                                NavigationLink {
+                                    let book = book.bookStore[i]
+                                    DetailWithStarView(book: book, isFavorited: book.isFavourite)
+                                        
+                                } label: {
+                                    singleListView(num: i)
+                                }
+                            }
+                            
                         }
-                        
                     }
                 }
             }
+            .navigationTitle("My Library")
+            .foregroundColor(Color.black)
         }
     }
     
@@ -32,6 +41,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(BookModel())
     }
 }
