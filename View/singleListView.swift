@@ -20,6 +20,8 @@ struct singleListView: View {
                 
                 HStack {
                     Text(book.bookStore[num].title)
+                        .font(.title3)
+                        .fontWeight(.semibold)
                         .padding(.leading)
                     Spacer()
                     
@@ -29,11 +31,14 @@ struct singleListView: View {
                             .frame(width: 28, height: 28)
                             .foregroundColor(.yellow)
                             .scaledToFit()
+                            .padding([.trailing])
                         
                     }
                 }
                
                 Text(book.bookStore[num].author)
+                    .font(.subheadline)
+                    .italic()
                     .padding(.leading)
                 Image("cover\(book.bookStore[num].id)")
                     .resizable()

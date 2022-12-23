@@ -10,6 +10,7 @@ import SwiftUI
 struct DetailWithStarView: View {
     var book: Book
     @EnvironmentObject var model: BookModel
+    var num: Int
     @State var isFavorited: Bool
     @State var currentlyRated = 1
     var body: some View {
@@ -20,11 +21,11 @@ struct DetailWithStarView: View {
                             .fontWeight(.semibold)
                             .padding(.top)
                         NavigationLink {
-                            ReadingView(book: book)
+                            ReadingView(num: num, book: book)
                         } label: {
                             Image("cover\(book.id)")
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: 400, height: 350)
+                                .frame(width: 400, height: 500)
                                 .clipped()
                         }
                         Text("Mark For Later")
@@ -57,6 +58,6 @@ struct DetailWithStarView: View {
 struct DetailWithStarView_Previews: PreviewProvider {
     static var previews: some View {
         let example = Book(ids: UUID(), title: "Harry Potter", author: "Jimmy", isfav: true, currentPage: 0, rating: 1, id: 1, content: ["sadfasfasfafsasf", "adsfasfasf"])
-        DetailWithStarView(book: example, isFavorited: example.isFavourite)
+        DetailWithStarView(book: example, num: 0, isFavorited: example.isFavourite)
     }
 }
