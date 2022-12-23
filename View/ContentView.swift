@@ -19,7 +19,7 @@ struct ContentView: View {
                             ForEach(0..<book.bookStore.count) {i in
                                 NavigationLink {
                                     let book = book.bookStore[i]
-                                    DetailWithStarView(book: book, num: i, isFavorited: book.isFavourite)
+                                    DetailWithStarView(book: book, num: i, isFavorited: book.isFavourite, currentlyRated: book.rating)
                                         
                                 } label: {
                                     singleListView(num: i)

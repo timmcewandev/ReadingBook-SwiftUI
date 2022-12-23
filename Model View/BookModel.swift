@@ -25,4 +25,13 @@ class BookModel: ObservableObject {
         objectWillChange.send()
     }
     
+    func switchNumRating(id: UUID, numRating: Int) {
+        for i in 0..<self.bookStore.count {
+            if self.bookStore[i].ids == id {
+                self.bookStore[i].rating = numRating
+            }
+        }
+        objectWillChange.send()
+    }
+    
 }

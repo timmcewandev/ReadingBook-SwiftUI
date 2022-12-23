@@ -54,7 +54,6 @@ struct singleListView: View {
 
 struct singleListView_Previews: PreviewProvider {
     static var previews: some View {
-        let example = Book(ids: UUID(), title: "Harry Potter", author: "Jimmy", isfav: true, currentPage: 0, rating: 1, id: 1, content: ["sadfasfasfafsasf", "adsfasfasf"])
         singleListView(num: 0)
     }
 }
